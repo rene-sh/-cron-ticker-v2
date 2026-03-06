@@ -21,7 +21,7 @@ const getGreeting = (name) => {
     if (!name || typeof name !== 'string') {
         throw new Error('Se requiere un nombre válido');
     }
-    return `Hola ${name}!`;
+    return `Hola, ${name}!`;
 };
 
 const divide = (a, b) => {
