@@ -1,7 +1,10 @@
 name: CI Pipeline Completo
 
 on:
-  ?
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
 
 env:
@@ -11,14 +14,14 @@ jobs:
 
   lint:
     name: 🔍 Lint
-    ?
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      ?
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      ?
+      - name: Run lint
       - run: npm run lint
 
   test:
